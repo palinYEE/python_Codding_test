@@ -28,4 +28,19 @@
 2 4 5 4 6
 '''
 
-n, m, k = map(int, input().split())
+n, m, k = map(int, input().split())         # n, m, k setting
+data = list(map(int, input().split()))      # data setting
+
+data.sort()
+result = 0
+count = 0
+
+for i in range(0, m):
+    if count == k:
+        count = 0
+        result += data[-2]
+    else:
+        result += data[-1]
+        count += 1
+        
+print(result)
