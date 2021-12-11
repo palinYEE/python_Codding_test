@@ -7,3 +7,4 @@
     - largeNumberRule.py :  큰 수의 법칙 
     - numberCardGame.py : 숫자 카드 게임
     - UntilReach1.py : 1이 될 때까지
+    - udlr.py : 상하좌우
