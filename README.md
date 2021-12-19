@@ -9,3 +9,8 @@
     - UntilReach1.py : 1이 될 때까지
     - udlr.py : 상하좌우
     - yj_time.py : 시각
+    - game_create.py : 게임 개발
+
+- part11 그리디 문제 
+  - adventurer_guild.py : 모험가 길드
+  - mul_or_add.py : 곱하기 혹은 더하기
