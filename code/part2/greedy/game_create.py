@@ -68,6 +68,60 @@ def sol():
         g_map.append(input().split())
     prob_info(col, row, user_info, g_map)
 
+class book_sol:
+    def __init__(self):
+        self.n, self.m = map(int, input().split())
+        self.d = [[0] * self.m for _ in range(self.n)]
+        self.x, self.y, self.direction = map(int, input().split())
+        self.d[self.x][self.y] = 1
+
+        self.array = []
+        for i in range(self.n):
+            self.array.append(list(map(int, input().split())))
+        self.dx = [-1, 0, 1, 0]
+        self.dy = [0, 1, 0, -1]
+
+    def turn_left(self):
+        self.direction -= 1
+        if self.direction == -1:
+            self.direction = 3
+    
+    def result(self):
+        count = 1
+        turn_time = 0
+
+        while True:
+            self.turn_left()
+            nx = self.x + self.dx[self.direction]
+            ny = self.y + self.dy[self.direction]
+
+            if self.d[nx][ny] == 0 and self.array[nx][ny] == 0:
+                self.d[nx][ny] = 1
+                self.x = nx
+                self.y = ny
+                count += 1
+                turn_time = 0
+                continue
+            else:
+                turn_time += 1
+            
+            if turn_time == 4:
+                nx = self.x - self.dx[self.direction]
+                ny = self.y - self.dy[self.direction]
+
+                if self.array[nx][ny] == 0:
+                    self.x = nx
+                    self.y = ny
+                else:
+                    break
+                turn_time = 0
+        return count
+
+
 if __name__ == '__main__':
     solv_info()
     sol()
+    print("========================")
+    print("[*] book solution : ")
+    book = book_sol()
+    print(f"     - result : {book.result()}")
